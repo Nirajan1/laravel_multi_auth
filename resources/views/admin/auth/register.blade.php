@@ -5,7 +5,7 @@
                 <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
             </a>
         </x-slot>
-<h2>Admin Register</h2>
+                <h2 style="text-align: center">Admin Register</h2>
         <form method="POST" action="{{ route('admin.register') }}">
             @csrf
 

@@ -10,7 +10,7 @@ use App\Http\Controllers\Adminauth\PasswordResetLinkController;
 use App\Http\Controllers\Adminauth\RegisteredUserController;
 use App\Http\Controllers\Adminauth\VerifyEmailController;
 use Illuminate\Support\Facades\Route;
-Route::group(['middleware' => ['guest:admin'],'prefix' => 'admin', 'as' => 'admin'],function(){
+Route::group(['middleware' => ['guest:admin'],'prefix' => 'admin', 'as' => 'admin.'],function(){
     Route::get('register', [RegisteredUserController::class, 'create'])
     ->name('register');
 
@@ -35,7 +35,7 @@ Route::post('reset-password', [NewPasswordController::class, 'store'])
 });
 
 
-Route::group(['middleware' => ['guest:admin'],'prefix' => 'admin', 'as' => 'admin'],function(){
+Route::group(['middleware' => ['auth:admin'],'prefix' => 'admin', 'as' => 'admin.'],function(){
     Route::get('verify-email', [EmailVerificationPromptController::class, '__invoke'])
     ->name('verification.notice');
 
